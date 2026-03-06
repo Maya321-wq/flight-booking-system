@@ -4,6 +4,7 @@ const {
   getFlightById,
   updateFlight,
   deleteFlight,
+  searchFlights,
 } = require('../services/flightService');
 
 const addFlight = async (req, res, next) => {
@@ -51,4 +52,14 @@ const removeFlight = async (req, res, next) => {
   }
 };
 
-module.exports = { addFlight, getFlights, getFlight, editFlight, removeFlight };
+const searchFlightsByFilter = async (req, res, next) => {
+  try {
+    const { from, to, date } = req.query;
+    const flights = await searchFlights({ from, to, date });
+    res.status(200).json({ success: true, count: flights.length, flights });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { addFlight, getFlights, getFlight, editFlight, removeFlight, searchFlightsByFilter };
