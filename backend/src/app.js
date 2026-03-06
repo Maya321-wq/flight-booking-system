@@ -15,6 +15,7 @@ app.get('/api/health', (req, res) => {
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/flights', require('./routes/flightRoutes'));
+app.use('/api/bookings', require('./routes/bookingRoutes'));
 
 // Global Error Handler 
 app.use((err, req, res, next) => {
