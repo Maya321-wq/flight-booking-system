@@ -6,9 +6,11 @@ const {
   getFlight,
   editFlight,
   removeFlight,
+  searchFlightsByFilter,
 } = require('../controllers/flightController');
 const { protect } = require('../middlewares/authMiddleware');
 
+router.get('/search', searchFlightsByFilter);
 router.post('/', protect, addFlight);
 router.get('/', getFlights);
 router.get('/:id', getFlight);

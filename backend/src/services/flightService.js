@@ -48,10 +48,43 @@ const deleteFlight = async (id) => {
   return flight;
 };
 
+const searchFlights = async ({ from, to, date }) => {
+  const filter = {};
+
+  if (from) {
+    filter.from = { $regex: from, $options: 'i' };
+  }
+
+  if (to) {
+    filter.to = { $regex: to, $options: 'i' };
+  }
+
+  if (date) {
+    const startOfDay = new Date(date);
+    startOfDay.setHours(0, 0, 0, 0);
+
+    const endOfDay = new Date(date);
+    endOfDay.setHours(23, 59, 59, 999);
+
+    filter.date = { $gte: startOfDay, $lte: endOfDay };
+  }
+
+  const flights = await Flight.find(filter).sort({ date: 1 });
+
+  if (flights.length === 0) {
+    const error = new Error('No flights found matching your search');
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return flights;
+};
+
 module.exports = {
   createFlight,
   getAllFlights,
   getFlightById,
   updateFlight,
   deleteFlight,
+  searchFlights,
 };
