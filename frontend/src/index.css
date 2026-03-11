@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ─── CSS Variables ─────────────────────────────── */
+:root {
+  --navy:        #050d1a;
+  --navy-800:    #0a1628;
+  --navy-700:    #0f2040;
+  --blue-brand:  #1e4fd8;
+  --blue-light:  #3b82f6;
+  --blue-glow:   rgba(30, 79, 216, 0.35);
+  --border:      rgba(255,255,255,0.08);
+  --surface:     rgba(255,255,255,0.04);
+}
+
+/* ─── Reset & Base ──────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background-color: var(--navy);
+  color: #e2e8f0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--navy); }
+::-webkit-scrollbar-thumb { background: var(--blue-brand); border-radius: 4px; }
+
+/* ─── Hero Section ──────────────────────────────── */
+.hero-section {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0a1a3a 0%, #050d1a 55%, #060f22 100%);
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30, 79, 216, 0.28) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M0 80 L80 0' stroke='rgba(255,255,255,0.025)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, var(--navy));
+  pointer-events: none;
+}
+
+/* ─── Glass Surface ─────────────────────────────── */
+.glass {
+  background: rgba(10, 22, 40, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.glass-light {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ─── Search Card ────────────────────────────────── */
+.search-card {
+  background: rgba(8, 18, 36, 0.9);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(59, 130, 246, 0.18);
+  border-radius: 20px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.3),
+    0 20px 60px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(59,130,246,0.06) inset;
+  padding: 2rem;
+}
+
+/* ─── Input Field ────────────────────────────────── */
+.input-field {
+  width: 100%;
+  background-color: rgba(5, 13, 26, 0.8);
+  border: 1.5px solid rgba(51, 65, 85, 0.8);
+  color: #f1f5f9;
+  border-radius: 10px;
+  padding: 0.7rem 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.925rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.input-field::placeholder { color: #475569; }
+.input-field:focus {
+  border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* ─── Buttons ────────────────────────────────────── */
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(135deg, #1e4fd8 0%, #2563eb 100%);
+  color: white;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.925rem;
+  letter-spacing: 0.01em;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(30, 79, 216, 0.3);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.45);
+  transform: translateY(-1px);
+}
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  background-color: rgba(15, 32, 64, 0.8);
+  color: #94a3b8;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.65rem 1.1rem;
+  border-radius: 10px;
+  border: 1.5px solid rgba(51, 65, 85, 0.7);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  background-color: rgba(30, 41, 59, 0.9);
+  color: white;
+  border-color: rgba(71, 85, 105, 0.8);
+}
+
+.btn-search {
+  background: linear-gradient(135deg, #1e4fd8, #3b82f6);
+  color: white;
+  font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(30, 79, 216, 0.4);
+}
+.btn-search:hover {
+  box-shadow: 0 6px 28px rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+/* ─── Flight Card ────────────────────────────────── */
+.flight-card {
+  background: linear-gradient(145deg, rgba(10,22,40,0.95), rgba(8,16,32,0.98));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.flight-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(59,130,246,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.flight-card:hover {
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(59,130,246,0.08) inset;
+  transform: translateY(-2px);
+}
+.flight-card:hover::before { opacity: 1; }
+
+/* ─── Booking Card ───────────────────────────────── */
+.booking-card {
+  background: linear-gradient(145deg, rgba(10,22,40,0.95), rgba(8,16,32,0.98));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: box-shadow 0.2s;
+}
+.booking-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+}
+
+/* ─── Auth Card ──────────────────────────────────── */
+.auth-card {
+  background: rgba(8, 18, 36, 0.92);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.06) inset;
+  padding: 2.5rem;
+}
+
+/* ─── Badges ─────────────────────────────────────── */
+.badge-confirmed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(6, 78, 59, 0.4);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.badge-canceled {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(127, 29, 29, 0.4);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+/* ─── Glow Utilities ─────────────────────────────── */
+.glow-blue { box-shadow: 0 0 20px rgba(59, 130, 246, 0.35); }
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ─── Route Connector ────────────────────────────── */
+.route-connector {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 6px;
+}
+.route-connector-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(59,130,246,0.3), rgba(59,130,246,0.6), rgba(59,130,246,0.3));
+}
+
+/* ─── Navbar ─────────────────────────────────────── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  background: rgba(5, 13, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ─── Section Divider ────────────────────────────── */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+}
+
+/* ─── Stat Pills ─────────────────────────────────── */
+.stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
