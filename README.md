@@ -4,7 +4,7 @@ A full-stack flight booking web application built with Node.js, Express, MongoDB
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -16,7 +16,7 @@ A full-stack flight booking web application built with Node.js, Express, MongoDB
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 flight-booking-system/
@@ -51,7 +51,7 @@ flight-booking-system/
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 ### 1. Clone the repository
 
@@ -87,7 +87,7 @@ Frontend runs on **http://localhost:3000**
 
 ---
 
-## 🔐 Environment Variables
+## Environment Variables
 
 Create a `.env` file inside the `backend/` folder with the following:
 
@@ -110,7 +110,7 @@ MAIL_FROM=noreply@flightbooking.com
 
 ---
 
-## 📬 API Endpoints
+## API Endpoints
 
 ### Auth
 
@@ -223,7 +223,7 @@ Authorization: Bearer <token>
 
 ---
 
-## 🔄 Full User Flow
+## Full User Flow
 
 1. **Register** → POST `/api/auth/register`
 2. **Check Mailtrap inbox** → copy the 6-digit verification code
@@ -237,7 +237,7 @@ Authorization: Bearer <token>
 
 ---
 
-## 🧪 Testing with Postman
+## Testing with Postman
 
 Import the included `documents/FlightBookingSystem.postman_collection.json` into Postman.
 
@@ -249,7 +249,7 @@ The Login request includes a test script that automatically saves the JWT token 
 
 ---
 
-## 🗄️ Database Collections
+## Database Collections
 
 ### Users
 | Field | Type | Description |
@@ -284,7 +284,7 @@ The Login request includes a test script that automatically saves the JWT token 
 
 ---
 
-## 👥 Group Members
+## Group Members
 
 - Dareen
 - Maya
@@ -292,3 +292,4 @@ The Login request includes a test script that automatically saves the JWT token 
 ---
 
 *SWAPD352 Web Development — Spring 2026*
+
